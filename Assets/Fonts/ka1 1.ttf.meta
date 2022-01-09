@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: b431fc200da4aa44f838a9f2dfded4c1
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Karmatic Arcade
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 6d248b2bda56a854789b965ebc046b9c, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
