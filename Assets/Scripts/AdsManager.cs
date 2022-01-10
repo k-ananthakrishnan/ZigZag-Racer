@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Advertisements;
-public class AdsManager : MonoBehaviour
+public class AdsManager : MonoBehaviour, IUnityAdsListener
 {
     public static AdsManager instance;
 
@@ -17,6 +17,7 @@ public class AdsManager : MonoBehaviour
     void Start()
     {
         Advertisement.Initialize(gameID);
+        Advertisement.AddListener(this);
         
     }
 
@@ -31,5 +32,36 @@ public class AdsManager : MonoBehaviour
         if(Advertisement.IsReady("Interstitial_Android")){
             Advertisement.Show("Interstitial_Android");
         }
+    }
+
+    public void ShowRewardedAds(){
+        if(Advertisement.IsReady("Rewarded_Android")){
+            Advertisement.Show("Rewarded_Android");
+        }
+    }
+
+    public void OnUnityAdsReady(string gameID)
+    {
+        // throw new System.NotImplementedException();
+    }
+
+    public void OnUnityAdsDidError(string message)
+    {
+        // throw new System.NotImplementedException();
+    }
+
+    public void OnUnityAdsDidStart(string placementId)
+    {
+        // throw new System.NotImplementedException();
+    }
+
+    public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
+    {
+        // if (showResult==ShowResult.Finished)
+        // {
+            
+        // }
+        // throw new System.NotImplementedException();
+        GameManager.instance.ReloadLevel();
     }
 }
