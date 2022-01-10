@@ -6,18 +6,26 @@ public class CarController : MonoBehaviour
 {
 
     public float moveSpeed;
+    float currentSpeed = 0f;
+    private float accelerationTime = 200;   
+    float maxSpeed = 20;
     public GameObject pickUpEffect;
     bool movingLeft = true;
 
     bool firstInput = true;
 
+    private float time;
+    private float minSpeed ;
     // bool stop = false;
-    float speedIncrement=1;
+
+    bool gameOver = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(IncreaseSpeed());
+        minSpeed = moveSpeed; 
+        time = 0 ;
+
     }
 
     // Update is called once per frame
@@ -28,29 +36,26 @@ public class CarController : MonoBehaviour
             Move();
             CheckInput();
             
+            
         }
-        if (transform.position.y <= -2)
+        if (transform.position.y <= -2 )
         {
+            if (!gameOver)
+            {
+            gameOver=true;
             GameManager.instance.GameOver();
+            }
         }
         
         
-    }
-
-    IEnumerator IncreaseSpeed()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(20f);
-            speedIncrement+=0.05f;
-
-        }
     }
 
 
     void Move()
     {
-        transform.position += transform.forward * moveSpeed * Time.deltaTime * speedIncrement;
+         currentSpeed = Mathf.SmoothStep(minSpeed, maxSpeed, time / accelerationTime );
+         transform.position += transform.forward * currentSpeed * Time.deltaTime;
+         time += Time.deltaTime ;
     }
 
 

@@ -69,7 +69,9 @@ public class GameManager : MonoBehaviour
         platformSpawner.SetActive(false);
         StopCoroutine("UpdateScore");
         SaveHighScore();
-        Invoke("ReloadLevel", 1f);
+        //show ads
+        AdsManager.instance.ShowAds();
+        Invoke("ReloadLevel", 0.5f);
     }
 
 
