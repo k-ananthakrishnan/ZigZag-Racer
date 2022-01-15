@@ -61,7 +61,6 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
         // {
             
         // }
-        // throw new System.NotImplementedException();
         GameManager.instance.ReloadLevel();
     }
 }
