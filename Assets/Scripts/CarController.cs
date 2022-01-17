@@ -7,7 +7,7 @@ public class CarController : MonoBehaviour
 
     public float moveSpeed;
     float currentSpeed = 0f;
-    private float accelerationTime = 200;   
+    private float accelerationTime = 300;   
     float maxSpeed = 20;
     public GameObject pickUpEffect;
     bool movingLeft = true;
@@ -72,6 +72,11 @@ public class CarController : MonoBehaviour
         {
             ChangeDirection();
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                GameManager.instance.GameOver();
+                Debug.Log("RELOAD");
+            }
     }
 
     void ChangeDirection()

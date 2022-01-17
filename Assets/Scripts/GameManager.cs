@@ -54,7 +54,13 @@ public class GameManager : MonoBehaviour
             {
                 GameStart();
             }
-        }        
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Application.Quit();
+                Debug.Log("EXIT");
+            }
+        }    
+        
     }
 
 
@@ -67,6 +73,7 @@ public class GameManager : MonoBehaviour
         audioSource.clip = gameMusic[1];
         audioSource.Play();
         StartCoroutine("UpdateScore");
+        
     }
 
     public void GameOver()
@@ -83,7 +90,8 @@ public class GameManager : MonoBehaviour
 
             audioSource.Stop();
             
-            AdsManager.instance.ShowRewardedAds();
+            //AdsManager.instance.ShowRewardedAds();
+            AdsManager.instance.ShowAds();
         }else{
             Invoke("ReloadLevel", 0.5f);
         }   

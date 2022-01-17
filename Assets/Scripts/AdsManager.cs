@@ -34,11 +34,11 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
         }
     }
 
-    public void ShowRewardedAds(){
-        if(Advertisement.IsReady("Rewarded_Android")){
-            Advertisement.Show("Rewarded_Android");
-        }
-    }
+    // public void ShowRewardedAds(){
+    //     if(Advertisement.IsReady("Rewarded_Android")){
+    //         Advertisement.Show("Rewarded_Android");
+    //     }
+    // }
 
     public void OnUnityAdsReady(string gameID)
     {
